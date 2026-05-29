@@ -323,7 +323,7 @@ button{cursor:pointer;font-family:inherit}
 .service-icon{
   width:46px;height:46px;background:rgba(26,111,212,.1);border-radius:10px;
   display:flex;align-items:center;justify-content:center;
-  margin-bottom:12px;font-size:1.3rem
+  margin-bottom:12px;font-size:1.2rem;color:var(--blue)
 }
 .service-card-body h3{font-size:1.05rem;font-weight:700;color:var(--dark);margin-bottom:8px}
 .service-card-body p{font-size:.875rem;color:var(--mid);line-height:1.6}
