@@ -81,6 +81,17 @@ document.addEventListener('DOMContentLoaded', () => {
     reveals.forEach(r => ro.observe(r));
   }
 
+  /* ---- Split image slide-in reveal ---- */
+  const revealImgs = document.querySelectorAll('.reveal-img');
+  if (revealImgs.length) {
+    const rio = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('animated'); rio.unobserve(e.target); }
+      });
+    }, { threshold: 0.15 });
+    revealImgs.forEach(el => rio.observe(el));
+  }
+
   /* ---- Flip cards: tap su mobile ---- */
   document.querySelectorAll('.fc').forEach(card => {
     card.addEventListener('click', () => card.classList.toggle('flipped'));

@@ -290,6 +290,22 @@ button{cursor:pointer;font-family:inherit}
 .split-text ul li::before{content:'→';position:absolute;left:0;color:var(--blue);font-size:.85rem}
 .split.reverse .split-img{order:-1}
 
+/* ── Ken Burns sul page-hero al caricamento pagina ── */
+@keyframes kbZoom{from{transform:scale(1.08)}to{transform:scale(1)}}
+.page-hero .hero-bg{animation:kbZoom 2s ease forwards}
+
+/* ── Reveal animation per immagini split (panoramica / rete impresa) ── */
+.reveal-img{
+  opacity:0;
+  transition:opacity .85s ease, transform .85s ease
+}
+.reveal-img.from-left {transform:translateX(-48px) scale(.97)}
+.reveal-img.from-right{transform:translateX(48px)  scale(.97)}
+.reveal-img.animated  {opacity:1;transform:translateX(0) scale(1)}
+/* hover zoom (overflow:hidden già su .split-img) */
+.reveal-img img{transition:transform .5s ease;will-change:transform}
+.reveal-img:hover img{transform:scale(1.06)}
+
 /* ============================================================
    SERVICE CARDS
    ============================================================ */
