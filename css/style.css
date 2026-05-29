@@ -637,7 +637,7 @@ button{cursor:pointer;font-family:inherit}
 /* ============================================================
    SCROLL STORY — video scrubbing
    ============================================================ */
-.scroll-story{height:280vh;position:relative}
+.scroll-story{height:170vh;position:relative}
 .scroll-story-sticky{
   position:sticky;top:0;height:100vh;overflow:hidden;background:#000
 }
@@ -700,4 +700,54 @@ button{cursor:pointer;font-family:inherit}
   .scroll-story-sticky{position:relative;height:100svh}
   .story-scroll-hint{display:none}
   .story-panel{bottom:12%;width:90%}
+}
+
+/* ============================================================
+   STAT CARDS — colorate (sostituiscono la stats-bar scura)
+   ============================================================ */
+.stat-cards-section{
+  padding:72px 0;
+  background:linear-gradient(135deg,#f0f6ff 0%,#eaf1fb 50%,#f5f0ff 100%)
+}
+.stat-cards-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:28px;max-width:960px;margin:0 auto
+}
+.stat-card-item{
+  background:#fff;border-radius:18px;padding:44px 28px 36px;
+  text-align:center;position:relative;overflow:hidden;
+  box-shadow:0 4px 28px rgba(0,0,0,.07);
+  border-top:5px solid transparent;
+  transition:transform .3s,box-shadow .3s
+}
+.stat-card-item:hover{transform:translateY(-6px);box-shadow:0 14px 40px rgba(0,0,0,.12)}
+.stat-card-blue  {border-top-color:#1a6fd4}
+.stat-card-teal  {border-top-color:#0d9488}
+.stat-card-amber {border-top-color:#f59e0b}
+.stat-card-item::before{
+  content:'';position:absolute;top:-36px;right:-36px;
+  width:110px;height:110px;border-radius:50%;opacity:.07
+}
+.stat-card-blue::before  {background:#1a6fd4}
+.stat-card-teal::before  {background:#0d9488}
+.stat-card-amber::before {background:#f59e0b}
+.sc-icon{font-size:2.1rem;margin-bottom:18px;display:block}
+.sc-num{
+  font-size:clamp(2.8rem,5.5vw,4rem);font-weight:900;
+  line-height:1;margin-bottom:10px;display:block
+}
+.stat-card-blue  .sc-num{color:#1a6fd4}
+.stat-card-teal  .sc-num{color:#0d9488}
+.stat-card-amber .sc-num{color:#e07b0a}
+.sc-label{
+  font-size:.9rem;font-weight:700;color:#2c3e50;
+  text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px
+}
+.sc-desc{font-size:.78rem;color:#aaa}
+@media(max-width:768px){
+  .stat-cards-grid{grid-template-columns:1fr;max-width:400px}
+  .stat-cards-section{padding:52px 0}
+}
+@media(max-width:480px){
+  .stat-cards-grid{grid-template-columns:1fr}
 }

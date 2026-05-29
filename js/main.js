@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ---- Counter animation on stats ---- */
-  const counters = document.querySelectorAll('.stat-num[data-target]');
+  const counters = document.querySelectorAll('.stat-num[data-target], .sc-num[data-target]');
   if (counters.length) {
     const obs = new IntersectionObserver(entries => {
       entries.forEach(entry => {
