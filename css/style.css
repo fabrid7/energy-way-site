@@ -383,6 +383,11 @@ button{cursor:pointer;font-family:inherit}
 }
 .highlight-item{display:flex;gap:14px;align-items:flex-start}
 .hi-icon{font-size:1.7rem;flex-shrink:0;margin-top:2px}
+.hi-num{
+  font-size:1.6rem;font-weight:900;font-style:italic;
+  color:rgba(255,255,255,.18);flex-shrink:0;line-height:1;
+  min-width:36px;margin-top:2px;letter-spacing:-1px
+}
 .highlight-item h4{font-size:.95rem;font-weight:700;margin-bottom:4px}
 .highlight-item p{font-size:.82rem;opacity:.8;line-height:1.5}
 
@@ -731,7 +736,6 @@ button{cursor:pointer;font-family:inherit}
 .stat-card-blue::before  {background:#1a6fd4}
 .stat-card-teal::before  {background:#0d9488}
 .stat-card-amber::before {background:#f59e0b}
-.sc-icon{font-size:2.1rem;margin-bottom:18px;display:block}
 .sc-num{
   font-size:clamp(2.8rem,5.5vw,4rem);font-weight:900;
   line-height:1;margin-bottom:10px;display:block
@@ -743,7 +747,13 @@ button{cursor:pointer;font-family:inherit}
   font-size:.9rem;font-weight:700;color:#2c3e50;
   text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px
 }
-.sc-desc{font-size:.78rem;color:#aaa}
+.sc-desc{font-size:.82rem;color:#999;line-height:1.55;margin-top:4px}
+
+/* Separatore titolo settori */
+.settori-intro{
+  background:#fff;padding:72px 0 52px;text-align:center
+}
+.settori-intro .section-head{margin-bottom:0}
 @media(max-width:768px){
   .stat-cards-grid{grid-template-columns:1fr;max-width:400px}
   .stat-cards-section{padding:52px 0}
