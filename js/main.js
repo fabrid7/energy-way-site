@@ -81,6 +81,11 @@ document.addEventListener('DOMContentLoaded', () => {
     reveals.forEach(r => ro.observe(r));
   }
 
+  /* ---- Flip cards: tap su mobile ---- */
+  document.querySelectorAll('.fc').forEach(card => {
+    card.addEventListener('click', () => card.classList.toggle('flipped'));
+  });
+
   /* ============================================================
      SCROLL STORY — video scrubbing
      ============================================================ */

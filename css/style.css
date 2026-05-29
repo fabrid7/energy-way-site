@@ -764,6 +764,102 @@ button{cursor:pointer;font-family:inherit}
 }
 
 /* ============================================================
+   STAT CARDS CHI SIAMO — versione orizzontale con milestone
+   ============================================================ */
+.cs-stats{
+  padding:72px 0;
+  background:linear-gradient(135deg,#f0f6ff 0%,#eaf1fb 50%,#f5f0ff 100%)
+}
+.cs-stats-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:28px;max-width:960px;margin:0 auto
+}
+/* riuso le classi stat-card-item già esistenti */
+
+/* ============================================================
+   FLIP CARDS — expertise
+   ============================================================ */
+.flip-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px
+}
+.fc{
+  height:340px;perspective:1200px;cursor:pointer;
+  -webkit-tap-highlight-color:transparent
+}
+.fc-inner{
+  position:relative;width:100%;height:100%;
+  transform-style:preserve-3d;
+  transition:transform .65s cubic-bezier(.4,0,.2,1)
+}
+.fc:hover .fc-inner,.fc.flipped .fc-inner{
+  transform:rotateY(180deg)
+}
+.fc-front,.fc-back{
+  position:absolute;inset:0;
+  border-radius:14px;overflow:hidden;
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  box-shadow:0 4px 24px rgba(0,0,0,.1)
+}
+/* FRONTE */
+.fc-front{background:#000}
+.fc-front img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .65s ease;opacity:.88
+}
+.fc:hover .fc-front img{transform:scale(1.05);opacity:.75}
+.fc-label{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:20px 20px 22px;
+  background:linear-gradient(to top,rgba(10,26,50,.88) 0%,transparent 100%);
+  color:#fff
+}
+.fc-label-tag{
+  display:block;font-size:.65rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:1.5px;
+  color:var(--gold);margin-bottom:6px
+}
+.fc-label h3{font-size:1rem;font-weight:700;line-height:1.25;margin:0}
+.fc-hint{
+  position:absolute;top:12px;right:12px;
+  background:rgba(255,255,255,.18);backdrop-filter:blur(4px);
+  color:#fff;font-size:.62rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:.8px;padding:4px 10px;border-radius:20px;
+  border:1px solid rgba(255,255,255,.25)
+}
+/* RETRO */
+.fc-back{
+  background:var(--blue);color:#fff;
+  transform:rotateY(180deg);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:32px 26px;text-align:center
+}
+.fc-back-num{
+  font-size:3rem;font-weight:900;font-style:italic;
+  color:rgba(255,255,255,.12);line-height:1;margin-bottom:14px;
+  letter-spacing:-2px
+}
+.fc-back h3{font-size:1.05rem;font-weight:800;margin-bottom:12px;color:#fff}
+.fc-back p{
+  font-size:.85rem;opacity:.88;line-height:1.65;color:rgba(255,255,255,.9)
+}
+@media(max-width:1024px){
+  .flip-grid{grid-template-columns:repeat(2,1fr)}
+  .cs-stats-grid{grid-template-columns:1fr 1fr 1fr}
+}
+@media(max-width:768px){
+  .flip-grid{grid-template-columns:1fr 1fr}
+  .fc{height:280px}
+  .cs-stats-grid{grid-template-columns:1fr;max-width:400px;margin:0 auto}
+}
+@media(max-width:480px){
+  .flip-grid{grid-template-columns:1fr}
+  .fc{height:300px}
+}
+
+/* ============================================================
    STAT CARDS — colorate (sostituiscono la stats-bar scura)
    ============================================================ */
 .stat-cards-section{
