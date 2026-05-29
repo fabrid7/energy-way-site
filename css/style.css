@@ -860,6 +860,76 @@ button{cursor:pointer;font-family:inherit}
 }
 
 /* ============================================================
+   ORG CHART — gerarchia team
+   ============================================================ */
+.org-chart{max-width:1000px;margin:0 auto}
+.org-level{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
+/* separatore tra livelli */
+.org-sep{
+  display:flex;flex-direction:column;align-items:center;
+  padding:6px 0 2px;pointer-events:none
+}
+.org-sep-line{width:2px;height:32px;background:rgba(26,111,212,.25)}
+.org-sep-arrow{
+  width:0;height:0;
+  border-left:5px solid transparent;
+  border-right:5px solid transparent;
+  border-top:7px solid rgba(26,111,212,.25)
+}
+/* etichetta livello */
+.org-level-label{
+  text-align:center;margin-bottom:16px;
+  font-size:.68rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:2px;color:rgba(26,111,212,.5)
+}
+/* card base */
+.org-card{
+  background:#fff;border-radius:12px;overflow:hidden;
+  box-shadow:0 2px 18px rgba(0,0,0,.08);
+  transition:transform .3s,box-shadow .3s;
+  border-top:3px solid var(--blue);
+  display:flex;flex-direction:column
+}
+.org-card:hover{transform:translateY(-4px);box-shadow:0 8px 28px rgba(0,0,0,.12)}
+.org-card-img{overflow:hidden;flex-shrink:0}
+.org-card-img img{width:100%;object-fit:cover;object-position:top center;display:block;transition:transform .4s}
+.org-card:hover .org-card-img img{transform:scale(1.04)}
+.org-card-body{padding:14px 12px;text-align:center;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.org-role{font-size:.82rem;font-weight:800;color:var(--dark);margin-bottom:3px;line-height:1.2}
+.org-dept{font-size:.72rem;color:var(--mid);line-height:1.4}
+
+/* Livello 1 — Direzione (più grande) */
+.org-lv1 .org-card{width:230px;border-top-color:var(--blue);border-top-width:4px}
+.org-lv1 .org-card-img img{height:290px}
+.org-lv1 .org-role{font-size:.9rem;color:var(--blue)}
+
+/* Livello 2 — Management */
+.org-lv2 .org-card{width:195px;border-top-color:#0d9488}
+.org-lv2 .org-card-img img{height:230px}
+.org-lv2 .org-role{color:#0d9488}
+
+/* Livello 3 — Operativo */
+.org-lv3 .org-card{width:172px;border-top-color:#f59e0b}
+.org-lv3 .org-card-img img{height:195px}
+.org-lv3 .org-role{font-size:.78rem;color:var(--dark)}
+.org-lv3 .org-dept{font-size:.68rem}
+
+@media(max-width:768px){
+  .org-lv1 .org-card{width:160px}
+  .org-lv1 .org-card-img img{height:200px}
+  .org-lv2 .org-card{width:140px}
+  .org-lv2 .org-card-img img{height:170px}
+  .org-lv3 .org-card{width:130px}
+  .org-lv3 .org-card-img img{height:150px}
+  .org-level{gap:12px}
+}
+@media(max-width:480px){
+  .org-lv1,.org-lv2,.org-lv3{flex-direction:column;align-items:center}
+  .org-lv1 .org-card,.org-lv2 .org-card,.org-lv3 .org-card{width:240px}
+  .org-lv1 .org-card-img img,.org-lv2 .org-card-img img,.org-lv3 .org-card-img img{height:220px}
+}
+
+/* ============================================================
    STAT CARDS — colorate (sostituiscono la stats-bar scura)
    ============================================================ */
 .stat-cards-section{
