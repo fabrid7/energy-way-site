@@ -80,4 +80,108 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.1 });
     reveals.forEach(r => ro.observe(r));
   }
+
+  /* ============================================================
+     SCROLL STORY — video scrubbing
+     ============================================================ */
+  (function () {
+    const section = document.querySelector('.scroll-story');
+    if (!section) return;
+
+    const video  = section.querySelector('.scrub-video');
+    const panels = section.querySelectorAll('.story-panel');
+    const dots   = section.querySelectorAll('.story-dot');
+
+    // Panel timing as [startFraction, endFraction] of total scroll
+    // Panel 3 intentionally wider (0.48-0.82 = 34%) vs ~27% for others
+    const TIMINGS = [
+      [0.00, 0.28],
+      [0.25, 0.52],
+      [0.48, 0.82],
+      [0.78, 1.00],
+    ];
+
+    function getProgress() {
+      const rect      = section.getBoundingClientRect();
+      const scrollable = section.offsetHeight - window.innerHeight;
+      return Math.max(0, Math.min(1, -rect.top / scrollable));
+    }
+
+    function showPanel(p) {
+      let active = -1;
+      panels.forEach((panel, i) => {
+        const on = p >= TIMINGS[i][0] && p <= TIMINGS[i][1];
+        panel.classList.toggle('visible', on);
+        if (on) active = i;
+      });
+      dots.forEach((d, i) => d.classList.toggle('active', i === active));
+    }
+
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+    if (!isMobile) {
+      /* ---------- DESKTOP: scrub on scroll ---------- */
+      video.pause();
+      let raf = false;
+
+      function scrub() {
+        const p = getProgress();
+        if (video.readyState >= 2 && video.duration) {
+          const t = p * video.duration;
+          // fastSeek is Firefox-only; fallback to currentTime for Chrome/Safari
+          try { video.fastSeek(t); } catch (_) { video.currentTime = t; }
+        }
+        showPanel(p);
+        raf = false;
+      }
+
+      window.addEventListener('scroll', () => {
+        if (raf) return;
+        raf = true;
+        requestAnimationFrame(scrub);
+      }, { passive: true });
+
+      video.addEventListener('loadedmetadata', () => showPanel(getProgress()));
+      showPanel(0);
+
+    } else {
+      /* ---------- MOBILE: autoplay + timed panels ---------- */
+      video.muted     = true;
+      video.autoplay  = true;
+      video.loop      = true;
+      video.playsInline = true;
+
+      // ms each panel stays visible (panel 3 = 4500ms, others = 2800ms)
+      const DURATIONS = [2800, 2800, 4500, 2800];
+      let current = 0;
+      let timer   = null;
+
+      function cycle() {
+        panels.forEach(p => p.classList.remove('visible'));
+        dots.forEach(d => d.classList.remove('active'));
+        panels[current].classList.add('visible');
+        dots[current].classList.add('active');
+        timer = setTimeout(() => {
+          current = (current + 1) % panels.length;
+          cycle();
+        }, DURATIONS[current]);
+      }
+
+      // Start cycling only when section enters viewport
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            video.play().catch(() => {});
+            current = 0;
+            cycle();
+          } else {
+            clearTimeout(timer);
+            panels.forEach(p => p.classList.remove('visible'));
+            dots.forEach(d => d.classList.remove('active'));
+          }
+        });
+      }, { threshold: 0.25 });
+      io.observe(section);
+    }
+  })();
 });
