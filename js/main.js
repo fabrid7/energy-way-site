@@ -189,4 +189,42 @@ document.addEventListener('DOMContentLoaded', () => {
       io.observe(section);
     }
   })();
+
+  /* ---- Org avatar lightbox ---- */
+  (function () {
+    const avatarImgs = document.querySelectorAll('.org2-avatar img');
+    if (!avatarImgs.length) return;
+
+    // Build overlay once
+    const overlay = document.createElement('div');
+    overlay.id = 'org-lightbox';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    const bigImg = document.createElement('img');
+    overlay.appendChild(bigImg);
+    document.body.appendChild(overlay);
+
+    function open(src, alt, pos) {
+      bigImg.src = src;
+      bigImg.alt = alt;
+      bigImg.style.objectPosition = pos || 'center top';
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function close() {
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    avatarImgs.forEach(el => {
+      el.addEventListener('click', e => {
+        e.stopPropagation();
+        open(el.src, el.alt, el.style.objectPosition);
+      });
+    });
+
+    overlay.addEventListener('click', close);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+  })();
 });

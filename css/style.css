@@ -966,6 +966,32 @@ button{cursor:pointer;font-family:inherit}
 }
 
 /* ============================================================
+   ORG AVATAR LIGHTBOX — overlay a tutto schermo
+   ============================================================ */
+#org-lightbox{
+  position:fixed;inset:0;
+  background:rgba(0,0,0,.85);z-index:9999;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;
+  opacity:0;pointer-events:none;
+  transition:opacity .25s ease
+}
+#org-lightbox.active{opacity:1;pointer-events:auto}
+#org-lightbox img{
+  width:min(500px,88vw);height:min(500px,88vw);
+  border-radius:50%;
+  object-fit:cover;
+  border:5px solid rgba(255,255,255,.3);
+  pointer-events:none;
+  box-shadow:0 8px 40px rgba(0,0,0,.6);
+  transform:scale(.9);
+  transition:transform .25s ease
+}
+#org-lightbox.active img{transform:scale(1)}
+/* cursor pointer su tutti gli avatar cliccabili */
+.org2-avatar img{cursor:pointer}
+
+/* ============================================================
    STAT CARDS — colorate (sostituiscono la stats-bar scura)
    ============================================================ */
 .stat-cards-section{
