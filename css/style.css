@@ -65,7 +65,7 @@ button{cursor:pointer;font-family:inherit}
   height:100%;display:flex;align-items:center;gap:24px;
 }
 .site-logo{flex-shrink:0}
-.site-logo img{height:90px;width:auto;object-fit:contain}
+.site-logo img{height:64px;width:auto;object-fit:contain}
 
 /* Nav */
 .site-nav{flex:1;display:flex;justify-content:center}
@@ -640,6 +640,7 @@ button{cursor:pointer;font-family:inherit}
   .site-nav,.btn-cta{display:none}
   .hamburger{display:flex}
   .header-inner{gap:0}
+  .site-logo img{height:48px}
   .hero{height:460px}
   .page-hero{height:250px}
   .ambiti-grid{grid-template-columns:1fr;height:auto}
