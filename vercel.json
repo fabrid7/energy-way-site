@@ -1,0 +1,30 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*).html",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
+      ]
+    }
+  ],
+  "rewrites": [
+    { "source": "/chi-siamo",       "destination": "/chi-siamo.html" },
+    { "source": "/servizi",         "destination": "/servizi.html" },
+    { "source": "/ambiti",          "destination": "/ambiti.html" },
+    { "source": "/siderurgico",     "destination": "/siderurgico.html" },
+    { "source": "/energia-oil-gas", "destination": "/energia-oil-gas.html" },
+    { "source": "/ambiente",        "destination": "/ambiente.html" },
+    { "source": "/certificazioni",  "destination": "/certificazioni.html" },
+    { "source": "/news",            "destination": "/news.html" },
+    { "source": "/lavora-con-noi",  "destination": "/lavora-con-noi.html" },
+    { "source": "/contattaci",      "destination": "/contattaci.html" }
+  ]
+}
