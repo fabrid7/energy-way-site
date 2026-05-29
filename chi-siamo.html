@@ -288,88 +288,132 @@
 
     <div class="org2">
 
-      <!-- ── DIREZIONE ── -->
-      <div class="org2-dept org2-top" style="--dept-color:#1a6fd4">
-        <div class="org2-dept-header">Direzione</div>
-        <div class="org2-cards">
-          <div class="org2-card">
-            <div class="org2-avatar org2-placeholder" style="--dept-color:#1a6fd4">NG</div>
-            <div class="org2-name">Nunzia Giacchi</div>
-            <div class="org2-role">Amministratore</div>
-          </div>
-          <div class="org2-card">
-            <div class="org2-avatar org2-placeholder" style="--dept-color:#1a6fd4">RG</div>
-            <div class="org2-name">Riccardo Gagliano</div>
-            <div class="org2-role">Resp. Commerciale</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ── HR ── -->
-      <div class="org2-dept" style="--dept-color:#0d9488">
-        <div class="org2-dept-header">HR</div>
-        <div class="org2-cards">
-          <div class="org2-card">
-            <div class="org2-avatar org2-placeholder" style="--dept-color:#0d9488">GG</div>
-            <div class="org2-name">Gaetano Gagliano</div>
-            <div class="org2-role">HR</div>
-          </div>
-          <div class="org2-card">
-            <div class="org2-avatar org2-placeholder" style="--dept-color:#0d9488">SC</div>
-            <div class="org2-name">Sharon Cuvato</div>
-            <div class="org2-role">HR</div>
-          </div>
-          <div class="org2-card">
-            <div class="org2-avatar org2-placeholder" style="--dept-color:#0d9488">AA</div>
-            <div class="org2-name">Alessandra Accomando</div>
-            <div class="org2-role">HR</div>
+      <!-- ── DIREZIONE (centrata in cima) ── -->
+      <div class="org2-block org2-center">
+        <div class="org2-dept org2-top" style="--dept-color:#1a6fd4">
+          <div class="org2-dept-header">Direzione</div>
+          <div class="org2-cards">
+            <div class="org2-card">
+              <div class="org2-avatar org2-placeholder" style="--dept-color:#1a6fd4">NG</div>
+              <div class="org2-name">Nunzia Giacchi</div>
+              <div class="org2-role">Amministratore</div>
+            </div>
+            <div class="org2-card">
+              <div class="org2-avatar org2-placeholder" style="--dept-color:#1a6fd4">RG</div>
+              <div class="org2-name">Riccardo Gagliano</div>
+              <div class="org2-role">Resp. Commerciale</div>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- ── UFFICIO OPERATIVO ── -->
-      <div class="org2-dept" style="--dept-color:#f59e0b">
-        <div class="org2-dept-header">Ufficio Operativo</div>
-        <div class="org2-cards">
-          <div class="org2-card">
-            <div class="org2-avatar org2-placeholder" style="--dept-color:#f59e0b">DP</div>
-            <div class="org2-name">Danilo Pizzardi</div>
-            <div class="org2-role">Ufficio Operativo</div>
-          </div>
-          <div class="org2-card">
-            <div class="org2-avatar org2-placeholder" style="--dept-color:#f59e0b">IC</div>
-            <div class="org2-name">Ivan Cassarà</div>
-            <div class="org2-role">Ufficio Operativo</div>
-          </div>
-        </div>
+      <!-- freccia verso il basso -->
+      <div class="org2-connector">
+        <div class="org2-connector-line"></div>
+        <div class="org2-connector-arrow"></div>
       </div>
 
-      <!-- ── ROW: TECNICO QUALITÀ · LOGISTICA · RSPP ── -->
-      <div style="display:flex;gap:28px;flex-wrap:wrap">
+      <!-- ── RIGA PRINCIPALE: HR · UFFICIO OPERATIVO · TECNICO QUALITÀ · LOGISTICA · AMMINISTRAZIONE ── -->
+      <div class="org2-block org2-row">
 
-        <div class="org2-dept" style="--dept-color:#7c3aed;flex:1;min-width:220px">
+        <div class="org2-dept" style="--dept-color:#0d9488">
+          <div class="org2-dept-header">HR</div>
+          <div class="org2-cards">
+            <div class="org2-card">
+              <div class="org2-avatar" style="--dept-color:#0d9488">
+                <img src="assets/images/2025__05__WhatsApp-Image-2025-05-16-at-13.51.07.jpeg" alt="Gaetano Gagliano" loading="lazy">
+              </div>
+              <div class="org2-name">Gaetano Gagliano</div>
+              <div class="org2-role">HR</div>
+            </div>
+            <div class="org2-card">
+              <div class="org2-avatar" style="--dept-color:#0d9488">
+                <img src="assets/images/2025__05__WhatsApp-Image-2025-05-16-at-10.30.26-e1747399216942.jpeg" alt="Sharon Cuvato" loading="lazy">
+              </div>
+              <div class="org2-name">Sharon Cuvato</div>
+              <div class="org2-role">HR</div>
+            </div>
+            <div class="org2-card">
+              <div class="org2-avatar org2-placeholder" style="--dept-color:#0d9488">AA</div>
+              <div class="org2-name">Alessandra Accomando</div>
+              <div class="org2-role">HR</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="org2-dept" style="--dept-color:#f59e0b">
+          <div class="org2-dept-header">Ufficio Operativo</div>
+          <div class="org2-cards">
+            <div class="org2-card">
+              <div class="org2-avatar org2-placeholder" style="--dept-color:#f59e0b">DP</div>
+              <div class="org2-name">Danilo Pizzardi</div>
+              <div class="org2-role">Ufficio Operativo</div>
+            </div>
+            <div class="org2-card">
+              <div class="org2-avatar" style="--dept-color:#f59e0b">
+                <img src="assets/images/2026__01__foto_900x1312.jpg" alt="Ivan Cassarà" loading="lazy">
+              </div>
+              <div class="org2-name">Ivan Cassarà</div>
+              <div class="org2-role">Ufficio Operativo</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="org2-dept" style="--dept-color:#7c3aed">
           <div class="org2-dept-header">Tecnico Qualità</div>
           <div class="org2-cards">
             <div class="org2-card">
-              <div class="org2-avatar org2-placeholder" style="--dept-color:#7c3aed">MD</div>
+              <div class="org2-avatar" style="--dept-color:#7c3aed">
+                <img src="assets/images/2025__05__WhatsApp-Image-2025-05-16-at-10.30.33-e1747399829996.jpeg" alt="Mattia Dimauro" loading="lazy">
+              </div>
               <div class="org2-name">Mattia Dimauro</div>
               <div class="org2-role">Tecnico Qualità</div>
             </div>
           </div>
         </div>
 
-        <div class="org2-dept" style="--dept-color:#0891b2;flex:1;min-width:220px">
+        <div class="org2-dept" style="--dept-color:#0891b2">
           <div class="org2-dept-header">Logistica</div>
           <div class="org2-cards">
             <div class="org2-card">
-              <div class="org2-avatar org2-placeholder" style="--dept-color:#0891b2">BS</div>
+              <div class="org2-avatar" style="--dept-color:#0891b2">
+                <img src="assets/images/2025__05__WhatsApp-Image-2025-05-16-at-13.50.57.jpeg" alt="Bianca Scozzarini" loading="lazy">
+              </div>
               <div class="org2-name">Bianca Scozzarini</div>
               <div class="org2-role">Logistica</div>
             </div>
           </div>
         </div>
 
-        <div class="org2-dept" style="--dept-color:#e11d48;flex:1;min-width:220px">
+        <div class="org2-dept" style="--dept-color:#059669">
+          <div class="org2-dept-header">Amministrazione e Contabilità</div>
+          <div class="org2-cards">
+            <div class="org2-card">
+              <div class="org2-avatar" style="--dept-color:#059669">
+                <img src="assets/images/2025__05__WhatsApp-Image-2025-05-16-at-13.50.54-e1747399556438.jpeg" alt="Aurora Cascino" loading="lazy">
+              </div>
+              <div class="org2-name">Aurora Cascino</div>
+              <div class="org2-role">Amministrazione</div>
+            </div>
+            <div class="org2-card">
+              <div class="org2-avatar" style="--dept-color:#059669">
+                <img src="assets/images/2025__05__WhatsApp-Image-2025-05-16-at-14.26.24-e1747398889990.jpeg" alt="Concetta Scicolone" loading="lazy">
+              </div>
+              <div class="org2-name">Concetta Scicolone</div>
+              <div class="org2-role">Contabilità</div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /riga principale -->
+
+      <!-- separatore visivo (nessuna gerarchia) -->
+      <div class="org2-divider"></div>
+
+      <!-- ── RSPP · MEDICO COMPETENTE (funzioni di supporto) ── -->
+      <div class="org2-block org2-row" style="max-width:640px;margin:0 auto;width:100%">
+
+        <div class="org2-dept" style="--dept-color:#e11d48">
           <div class="org2-dept-header">RSPP</div>
           <div class="org2-cards">
             <div class="org2-card">
@@ -380,28 +424,7 @@
           </div>
         </div>
 
-      </div><!-- /row tecnico-logistica-rspp -->
-
-      <!-- ── ROW: AMMINISTRAZIONE · MEDICO COMPETENTE ── -->
-      <div style="display:flex;gap:28px;flex-wrap:wrap">
-
-        <div class="org2-dept" style="--dept-color:#059669;flex:2;min-width:280px">
-          <div class="org2-dept-header">Amministrazione e Contabilità</div>
-          <div class="org2-cards">
-            <div class="org2-card">
-              <div class="org2-avatar org2-placeholder" style="--dept-color:#059669">AC</div>
-              <div class="org2-name">Aurora Cascino</div>
-              <div class="org2-role">Amministrazione</div>
-            </div>
-            <div class="org2-card">
-              <div class="org2-avatar org2-placeholder" style="--dept-color:#059669">CS</div>
-              <div class="org2-name">Concetta Scicolone</div>
-              <div class="org2-role">Contabilità</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="org2-dept" style="--dept-color:#8b5cf6;flex:1;min-width:220px">
+        <div class="org2-dept" style="--dept-color:#8b5cf6">
           <div class="org2-dept-header">Medico Competente</div>
           <div class="org2-cards">
             <div class="org2-card">
@@ -412,81 +435,79 @@
           </div>
         </div>
 
-      </div><!-- /row amm-medico -->
+      </div><!-- /rspp-medico -->
+
+      <!-- separatore visivo -->
+      <div class="org2-divider"></div>
 
       <!-- ── RESPONSABILI CANTIERI ── -->
-      <div class="org2-dept" style="--dept-color:#ea580c">
-        <div class="org2-dept-header">Responsabili Cantieri</div>
-        <div class="org2-cards">
-          <div class="org2-card">
-            <div class="org2-avatar org2-placeholder" style="--dept-color:#ea580c">DG</div>
-            <div class="org2-name">Domenico Gobbato</div>
-            <div class="org2-role">Resp. Cantiere</div>
-          </div>
-          <div class="org2-card">
-            <div class="org2-avatar org2-placeholder" style="--dept-color:#ea580c">MF</div>
-            <div class="org2-name">Massimo Freddura</div>
-            <div class="org2-role">Resp. Cantiere</div>
-          </div>
-          <div class="org2-card">
-            <div class="org2-avatar org2-placeholder" style="--dept-color:#ea580c">AS</div>
-            <div class="org2-name">Andrea Sammartino</div>
-            <div class="org2-role">Resp. Cantiere</div>
-          </div>
-          <div class="org2-card">
-            <div class="org2-avatar" style="--dept-color:#ea580c">
-              <img src="assets/images/2025__05__WhatsApp-Image-2025-05-16-at-14.41.51.jpeg" alt="Massimo Matta" loading="lazy">
+      <div class="org2-block">
+        <div class="org2-dept" style="--dept-color:#ea580c">
+          <div class="org2-dept-header">Responsabili Cantieri</div>
+          <div class="org2-cards">
+            <div class="org2-card">
+              <div class="org2-avatar org2-placeholder" style="--dept-color:#ea580c">DG</div>
+              <div class="org2-name">Domenico Gobbato</div>
+              <div class="org2-role">Resp. Cantiere</div>
             </div>
-            <div class="org2-name">Massimo Matta</div>
-            <div class="org2-role">Resp. Cantiere</div>
-          </div>
-          <div class="org2-card">
-            <div class="org2-avatar" style="--dept-color:#ea580c">
-              <img src="assets/images/2025__05__WhatsApp-Image-2025-05-16-at-12.04.27.jpeg" alt="Francesco La Rosa" loading="lazy">
+            <div class="org2-card">
+              <div class="org2-avatar org2-placeholder" style="--dept-color:#ea580c">MF</div>
+              <div class="org2-name">Massimo Freddura</div>
+              <div class="org2-role">Resp. Cantiere</div>
             </div>
-            <div class="org2-name">Francesco La Rosa</div>
-            <div class="org2-role">Resp. Cantiere</div>
-          </div>
-          <div class="org2-card">
-            <div class="org2-avatar" style="--dept-color:#ea580c">
-              <img src="assets/images/2025__05__WhatsApp-Image-2025-05-16-at-14.40.42.jpeg" alt="Alex Lombardo" loading="lazy">
+            <div class="org2-card">
+              <div class="org2-avatar org2-placeholder" style="--dept-color:#ea580c">AS</div>
+              <div class="org2-name">Andrea Sammartino</div>
+              <div class="org2-role">Resp. Cantiere</div>
             </div>
-            <div class="org2-name">Alex Lombardo</div>
-            <div class="org2-role">Resp. Cantiere</div>
-          </div>
-          <div class="org2-card">
-            <div class="org2-avatar org2-placeholder" style="--dept-color:#ea580c">DL</div>
-            <div class="org2-name">Denys Lazar</div>
-            <div class="org2-role">Resp. Cantiere</div>
-          </div>
-          <div class="org2-card">
-            <div class="org2-avatar" style="--dept-color:#ea580c">
-              <img src="assets/images/2025__05__WhatsApp-Image-2025-05-16-at-15.48.40.jpeg" alt="Raffaele Battimo" loading="lazy">
+            <div class="org2-card">
+              <div class="org2-avatar" style="--dept-color:#ea580c">
+                <img src="assets/images/2025__05__WhatsApp-Image-2025-05-16-at-14.41.51.jpeg" alt="Massimo Matta" loading="lazy">
+              </div>
+              <div class="org2-name">Massimo Matta</div>
+              <div class="org2-role">Resp. Cantiere</div>
             </div>
-            <div class="org2-name">Raffaele Battimo</div>
-            <div class="org2-role">Resp. Cantiere</div>
-          </div>
-          <div class="org2-card">
-            <div class="org2-avatar org2-placeholder" style="--dept-color:#ea580c">FB</div>
-            <div class="org2-name">Francesco Baldassarre</div>
-            <div class="org2-role">Resp. Cantiere</div>
-          </div>
-          <div class="org2-card">
-            <div class="org2-avatar org2-placeholder" style="--dept-color:#ea580c">PA</div>
-            <div class="org2-name">Pietro Angelini</div>
-            <div class="org2-role">Resp. Cantiere</div>
+            <div class="org2-card">
+              <div class="org2-avatar" style="--dept-color:#ea580c">
+                <img src="assets/images/2025__05__WhatsApp-Image-2025-05-16-at-12.04.27.jpeg" alt="Francesco La Rosa" loading="lazy">
+              </div>
+              <div class="org2-name">Francesco La Rosa</div>
+              <div class="org2-role">Resp. Cantiere</div>
+            </div>
+            <div class="org2-card">
+              <div class="org2-avatar" style="--dept-color:#ea580c">
+                <img src="assets/images/2025__05__WhatsApp-Image-2025-05-16-at-14.40.42.jpeg" alt="Alex Lombardo" loading="lazy">
+              </div>
+              <div class="org2-name">Alex Lombardo</div>
+              <div class="org2-role">Resp. Cantiere</div>
+            </div>
+            <div class="org2-card">
+              <div class="org2-avatar org2-placeholder" style="--dept-color:#ea580c">DL</div>
+              <div class="org2-name">Denys Lazar</div>
+              <div class="org2-role">Resp. Cantiere</div>
+            </div>
+            <div class="org2-card">
+              <div class="org2-avatar" style="--dept-color:#ea580c">
+                <img src="assets/images/2025__05__WhatsApp-Image-2025-05-16-at-15.48.40.jpeg" alt="Raffaele Battimo" loading="lazy">
+              </div>
+              <div class="org2-name">Raffaele Battimo</div>
+              <div class="org2-role">Resp. Cantiere</div>
+            </div>
+            <div class="org2-card">
+              <div class="org2-avatar org2-placeholder" style="--dept-color:#ea580c">FB</div>
+              <div class="org2-name">Francesco Baldassarre</div>
+              <div class="org2-role">Resp. Cantiere</div>
+            </div>
+            <div class="org2-card">
+              <div class="org2-avatar org2-placeholder" style="--dept-color:#ea580c">PA</div>
+              <div class="org2-name">Pietro Angelini</div>
+              <div class="org2-role">Resp. Cantiere</div>
+            </div>
           </div>
         </div>
-      </div>
+      </div><!-- /responsabili cantieri -->
 
     </div><!-- /org2 -->
-
-    <!-- foto cantiere sotto l'org chart -->
-    <div class="photo-grid" style="margin-top:56px">
-      <img src="assets/images/2025__05__WhatsApp-Image-2025-05-16-at-14.40.42.jpeg" alt="Cantiere Energy Way" loading="lazy">
-      <img src="assets/images/2025__05__WhatsApp-Image-2025-05-16-at-14.41.51.jpeg" alt="Cantiere Energy Way" loading="lazy">
-      <img src="assets/images/2025__05__WhatsApp-Image-2025-05-16-at-15.48.40.jpeg" alt="Cantiere Energy Way" loading="lazy">
-    </div>
 
   </div>
 </section>

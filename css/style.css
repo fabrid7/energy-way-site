@@ -862,7 +862,37 @@ button{cursor:pointer;font-family:inherit}
 /* ============================================================
    ORG CHART v2 — organigramma nominale con sezioni colorate
    ============================================================ */
-.org2{display:flex;flex-direction:column;gap:28px;max-width:1100px;margin:0 auto}
+.org2{display:flex;flex-direction:column;gap:0;max-width:1100px;margin:0 auto}
+
+/* Centra il blocco DIREZIONE */
+.org2-center{padding:0 0 0;display:flex;justify-content:center}
+.org2-center .org2-dept{width:100%;max-width:480px}
+
+/* Connettore con freccia (Direzione → riga sotto) */
+.org2-connector{
+  display:flex;flex-direction:column;align-items:center;
+  padding:4px 0 4px;pointer-events:none
+}
+.org2-connector-line{width:2px;height:28px;background:rgba(26,111,212,.3)}
+.org2-connector-arrow{
+  width:0;height:0;
+  border-left:6px solid transparent;
+  border-right:6px solid transparent;
+  border-top:8px solid rgba(26,111,212,.3)
+}
+
+/* Separatore visivo (nessuna freccia) tra gruppi */
+.org2-divider{
+  height:1px;background:rgba(0,0,0,.08);
+  margin:24px 0
+}
+
+/* Riga orizzontale di reparti */
+.org2-row{display:flex;gap:16px;flex-wrap:wrap;align-items:stretch}
+.org2-row .org2-dept{flex:1;min-width:160px}
+
+/* Margine tra blocchi */
+.org2-block{margin-bottom:24px}
 
 /* Department block */
 .org2-dept{
@@ -875,8 +905,8 @@ button{cursor:pointer;font-family:inherit}
   font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em
 }
 .org2-cards{
-  padding:24px 20px;
-  display:flex;flex-wrap:wrap;gap:18px;
+  padding:20px 16px;
+  display:flex;flex-wrap:wrap;gap:16px;
   justify-content:center
 }
 
@@ -916,6 +946,9 @@ button{cursor:pointer;font-family:inherit}
 .org2-dept.org2-top .org2-name{font-size:.88rem}
 .org2-dept.org2-top .org2-role{font-size:.74rem}
 
+@media(max-width:768px){
+  .org2-row .org2-dept{min-width:calc(50% - 8px)}
+}
 @media(max-width:640px){
   .org2-card{width:84px}
   .org2-avatar{width:60px;height:60px}
@@ -926,7 +959,8 @@ button{cursor:pointer;font-family:inherit}
   .org2-dept.org2-top .org2-avatar{width:72px;height:72px}
   .org2-dept.org2-top .org2-placeholder{font-size:1.15rem}
   .org2-dept.org2-top .org2-name{font-size:.76rem}
-  .org2-cards{gap:12px;padding:16px 12px}
+  .org2-cards{gap:12px;padding:14px 10px}
+  .org2-row .org2-dept{min-width:100%}
 }
 
 /* ============================================================
