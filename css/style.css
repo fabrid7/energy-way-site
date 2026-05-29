@@ -47,8 +47,8 @@ button{cursor:pointer;font-family:inherit}
 .topbar-social{display:flex;gap:10px;align-items:center}
 .topbar-social a{
   color:var(--white);opacity:.8;display:flex;align-items:center;justify-content:center;
-  width:26px;height:26px;border-radius:4px;background:rgba(255,255,255,.12);
-  font-weight:700;font-size:.75rem;transition:background .2s,opacity .2s
+  width:28px;height:28px;border-radius:4px;background:rgba(255,255,255,.12);
+  font-size:.9rem;transition:background .2s,opacity .2s
 }
 .topbar-social a:hover{opacity:1;background:rgba(255,255,255,.25)}
 
