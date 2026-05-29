@@ -448,6 +448,56 @@ button{cursor:pointer;font-family:inherit}
 }
 
 /* ============================================================
+   ARTICLE LIST — pagina news
+   ============================================================ */
+.article-list{display:flex;flex-direction:column;gap:0}
+.na{
+  display:grid;
+  grid-template-columns:420px 1fr;
+  gap:52px;
+  align-items:start;
+  padding:60px 0;
+  border-bottom:1px solid rgba(0,0,0,.07)
+}
+.na:last-child{border-bottom:none}
+.na.na-reverse{grid-template-columns:1fr 420px}
+.na.na-reverse .na-img{order:2}
+.na.na-reverse .na-body{order:1}
+.na-img{position:relative;flex-shrink:0}
+.na-img img{
+  width:100%;height:320px;object-fit:cover;
+  border-radius:12px;display:block;
+  box-shadow:0 4px 24px rgba(0,0,0,.1)
+}
+.na-cat{
+  position:absolute;top:14px;left:14px;
+  background:var(--blue);color:#fff;
+  font-size:.7rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:1px;padding:4px 12px;border-radius:20px
+}
+.na-meta{
+  font-size:.8rem;color:var(--mid);
+  text-transform:uppercase;letter-spacing:.5px;
+  font-weight:600;margin-bottom:12px
+}
+.na-body h2{
+  font-size:clamp(1.3rem,2.2vw,1.7rem);font-weight:800;
+  color:var(--dark);margin-bottom:16px;line-height:1.25
+}
+.na-body p{color:var(--mid);line-height:1.78;margin-bottom:14px;font-size:.95rem}
+.na-body p:last-child{margin-bottom:0}
+@media(max-width:1024px){
+  .na{grid-template-columns:340px 1fr;gap:36px}
+  .na.na-reverse{grid-template-columns:1fr 340px}
+}
+@media(max-width:768px){
+  .na,.na.na-reverse{grid-template-columns:1fr}
+  .na.na-reverse .na-img,.na.na-reverse .na-body{order:unset}
+  .na-img img{height:240px}
+  .na{padding:40px 0;gap:24px}
+}
+
+/* ============================================================
    MAP EMBED
    ============================================================ */
 .map-wrap{border-radius:12px;overflow:hidden;height:360px;box-shadow:var(--shadow)}
