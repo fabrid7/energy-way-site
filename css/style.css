@@ -757,20 +757,20 @@ button{cursor:pointer;font-family:inherit}
 
 /* Divisore tra video hero e scroll story */
 .video-divider{
-  background:var(--dark);
-  color:var(--white);
-  padding:56px 0;
+  background:#fff;
+  padding:60px 0;
   text-align:center;
-  border-top:1px solid rgba(255,255,255,.06)
+  border-top:1px solid rgba(0,0,0,.06);
+  border-bottom:1px solid rgba(0,0,0,.06)
 }
-.video-divider .section-tag{color:var(--gold)}
+.video-divider .section-tag{color:var(--blue)}
 .video-divider h2{
   font-size:clamp(1.6rem,3vw,2.2rem);
-  font-weight:800;color:var(--white);
+  font-weight:800;color:var(--dark);
   margin:10px 0 14px
 }
 .video-divider p{
-  color:rgba(255,255,255,.65);
+  color:var(--mid);
   max-width:580px;margin:0 auto;
   font-size:1rem;line-height:1.7
 }
