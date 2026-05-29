@@ -439,6 +439,12 @@ button{cursor:pointer;font-family:inherit}
 .news-card:hover .news-card-img img{transform:scale(1.06)}
 .news-card-body{padding:24px}
 .news-date{font-size:.72rem;text-transform:uppercase;letter-spacing:.5px;color:var(--blue);font-weight:700;margin-bottom:8px}
+/* Card cliccabile */
+.news-card-link{display:block;text-decoration:none;color:inherit}
+.news-card-link .news-card{transition:transform .3s,box-shadow .3s}
+.news-card-link:hover .news-card{transform:translateY(-5px);box-shadow:0 12px 36px rgba(0,0,0,.14)}
+.news-read{display:block;margin-top:14px;color:var(--blue);font-size:.85rem;font-weight:700;transition:gap .2s}
+.news-card-link:hover .news-read{text-decoration:underline}
 .news-card h3{font-size:1.05rem;font-weight:700;color:var(--dark);margin-bottom:8px;line-height:1.35}
 .news-card p{font-size:.85rem;color:var(--mid);line-height:1.6}
 .news-cat{
