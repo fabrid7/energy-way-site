@@ -1,70 +1,172 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Danieli – Galleria Cantieri – Energy Way</title>
   <link rel="stylesheet" href="../../css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
-    .gallery-hero{background:linear-gradient(135deg,#0f1923 0%,#1a3a5c 100%);padding:48px 0 36px;margin-top:calc(var(--header-h) + var(--topbar-h))}
-    .gallery-hero .container{display:flex;flex-direction:column;gap:18px}
-    .back-btn{display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,.7);font-size:.85rem;font-weight:600;text-decoration:none;transition:color .2s}
-    .back-btn:hover{color:#fff}
-    .gallery-company-header{display:flex;align-items:center;gap:24px}
-    .gallery-company-header img{height:56px;max-width:160px;object-fit:contain;background:#fff;padding:6px 12px;border-radius:8px;filter:none}
-    .gallery-company-header h1{font-size:2rem;font-weight:900;color:#fff;margin-bottom:4px}
-    .gallery-company-header p{font-size:.85rem;color:rgba(255,255,255,.6)}
-    .gallery-section{padding:48px 0 64px}
-    .gallery-count{font-size:.8rem;color:var(--mid);margin-bottom:20px;font-weight:600;text-transform:uppercase;letter-spacing:.6px}
-    .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
-    .gallery-item{cursor:pointer;overflow:hidden;border-radius:10px;background:#eee;aspect-ratio:4/3;position:relative}
-    .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .35s,filter .35s;display:block}
-    .gallery-item:hover img{transform:scale(1.06);filter:brightness(1.05)}
-    .gallery-item::after{content:'⤢';position:absolute;bottom:8px;right:10px;color:#fff;font-size:1.1rem;opacity:0;transition:opacity .2s;text-shadow:0 1px 4px rgba(0,0,0,.6)}
-    .gallery-item:hover::after{opacity:1}
-    #lightbox{position:fixed;inset:0;background:rgba(0,0,0,.93);z-index:2000;display:flex;align-items:center;justify-content:center;flex-direction:column;opacity:0;pointer-events:none;transition:opacity .2s}
-    #lightbox.active{opacity:1;pointer-events:all}
-    .lb-img-wrap{position:relative;display:flex;align-items:center;justify-content:center}
-    #lb-img{max-width:88vw;max-height:82vh;object-fit:contain;display:block;border-radius:4px;box-shadow:0 8px 40px rgba(0,0,0,.6)}
-    #lb-close{position:absolute;top:-44px;right:0;color:#fff;font-size:1.8rem;cursor:pointer;background:none;border:none;opacity:.75;line-height:1;padding:4px 8px}
-    #lb-close:hover{opacity:1}
-    .lb-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.15);border:none;color:#fff;font-size:1.5rem;padding:14px 18px;border-radius:8px;cursor:pointer;transition:background .2s}
-    .lb-nav:hover{background:rgba(255,255,255,.28)}
-    #lb-prev{left:-70px}#lb-next{right:-70px}
-    #lb-counter{color:rgba(255,255,255,.6);font-size:.78rem;margin-top:12px;letter-spacing:.4px}
-    @media(max-width:600px){.gallery-grid{grid-template-columns:1fr 1fr}#lb-prev,#lb-next{display:none}#lb-img{max-width:96vw}}
+    .gallery-hero{background:linear-gradient(135deg,#0f1923 0%,#1a3a5c 100%);padding:48px 0 36px;margin-top:calc(var(--header-h) + var(--topbar-h))}.gallery-hero .container{display:flex;flex-direction:column;gap:18px}.back-btn{display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,.7);font-size:.85rem;font-weight:600;text-decoration:none;transition:color .2s}.back-btn:hover{color:#fff}.gallery-company-header{display:flex;align-items:center;gap:24px}.gallery-company-header img{height:56px;max-width:160px;object-fit:contain;background:#fff;padding:6px 12px;border-radius:8px;filter:none}.gallery-company-header h1{font-size:2rem;font-weight:900;color:#fff;margin-bottom:4px}.gallery-company-header p{font-size:.85rem;color:rgba(255,255,255,.6)}.gallery-section{padding:48px 0 64px}.gallery-total-count{font-size:.8rem;color:var(--mid);margin-bottom:32px;font-weight:600;text-transform:uppercase;letter-spacing:.6px}.gallery-year-section{margin-bottom:52px}.gallery-year-header{display:flex;align-items:center;gap:14px;margin-bottom:18px;padding-bottom:12px;border-bottom:2px solid rgba(26,111,212,.15)}.year-badge{background:var(--blue);color:#fff;font-weight:900;font-size:.78rem;padding:4px 14px;border-radius:20px;letter-spacing:.5px;flex-shrink:0}.year-location{font-size:1.1rem;font-weight:800;color:var(--dark)}.year-count{font-size:.75rem;color:var(--mid);margin-left:auto;white-space:nowrap}.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}.gallery-item{cursor:pointer;overflow:hidden;border-radius:8px;background:#eee;aspect-ratio:4/3;position:relative}.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .35s;display:block}.gallery-item:hover img{transform:scale(1.06)}.gallery-item::after{content:'⤢';position:absolute;bottom:6px;right:8px;color:#fff;font-size:1rem;opacity:0;transition:opacity .2s;text-shadow:0 1px 4px rgba(0,0,0,.6)}.gallery-item:hover::after{opacity:1}#lightbox{position:fixed;inset:0;background:rgba(0,0,0,.93);z-index:2000;display:flex;align-items:center;justify-content:center;flex-direction:column;opacity:0;pointer-events:none;transition:opacity .2s}#lightbox.active{opacity:1;pointer-events:all}.lb-img-wrap{position:relative;display:flex;align-items:center;justify-content:center}#lb-img{max-width:88vw;max-height:82vh;object-fit:contain;display:block;border-radius:4px;box-shadow:0 8px 40px rgba(0,0,0,.6)}#lb-close{position:absolute;top:-44px;right:0;color:#fff;font-size:1.8rem;cursor:pointer;background:none;border:none;opacity:.75;line-height:1;padding:4px 8px}#lb-close:hover{opacity:1}.lb-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.15);border:none;color:#fff;font-size:1.5rem;padding:14px 18px;border-radius:8px;cursor:pointer;transition:background .2s}.lb-nav:hover{background:rgba(255,255,255,.28)}#lb-prev{left:-70px}#lb-next{right:-70px}#lb-counter{color:rgba(255,255,255,.6);font-size:.78rem;margin-top:12px;letter-spacing:.4px}@media(max-width:600px){.gallery-grid{grid-template-columns:1fr 1fr}#lb-prev,#lb-next{display:none}#lb-img{max-width:96vw}}
   </style>
 </head>
 <body>
 <div class="topbar"><div class="topbar-inner"><div class="topbar-contact"><a href="tel:+390933196443">&#128222; 0933 1964431</a><a href="mailto:info@energy-way.it">&#9993; info@energy-way.it</a><span class="topbar-address">&#128205; Via G. Falcone 5, Gela (CL)</span></div><div class="topbar-social"><a href="https://www.facebook.com/profile.php?id=100063471234071" aria-label="Facebook" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a><a href="https://www.linkedin.com/company/energy-way-srl/posts/?feedView=all" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i></a><a href="https://www.instagram.com/energy_way_s.r.l/" aria-label="Instagram" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a><a href="https://wa.me/393474131349" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a></div></div></div>
-<header class="site-header"><div class="header-inner">
-  <a href="../../index.html" class="site-logo"><img src="../../assets/images/2025__04__logo-1.jpg" alt="Energy Way"></a>
-  <nav class="site-nav"><ul class="nav-list"><li><a href="../../index.html">Home</a></li><li><a href="../../chi-siamo.html">Chi Siamo</a></li><li><a href="../../servizi.html">Servizi</a></li><li class="has-dropdown"><a href="../../ambiti.html">Ambiti</a><div class="dropdown"><a href="../../siderurgico.html">&#9881; Siderurgico</a><a href="../../energia-oil-gas.html">&#9889; Energia / Oil Gas</a><a href="../../ambiente.html">&#127807; Ambiente</a></div></li><li><a href="../../certificazioni.html">Certificazioni</a></li><li><a href="../../news.html">News</a></li><li><a href="../../lavora-con-noi.html">Lavora con noi</a></li></ul></nav>
-  <a href="../../contattaci.html" class="btn-cta">Contattaci &#8594;</a>
-  <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-</div></header>
+<header class="site-header"><div class="header-inner"><a href="../../index.html" class="site-logo"><img src="../../assets/images/2025__04__logo-1.jpg" alt="Energy Way"></a><nav class="site-nav"><ul class="nav-list"><li><a href="../../index.html">Home</a></li><li><a href="../../chi-siamo.html">Chi Siamo</a></li><li><a href="../../servizi.html">Servizi</a></li><li class="has-dropdown"><a href="../../ambiti.html">Ambiti</a><div class="dropdown"><a href="../../siderurgico.html">&#9881; Siderurgico</a><a href="../../energia-oil-gas.html">&#9889; Energia / Oil Gas</a><a href="../../ambiente.html">&#127807; Ambiente</a></div></li><li><a href="../../certificazioni.html">Certificazioni</a></li><li><a href="../../news.html">News</a></li><li><a href="../../lavora-con-noi.html">Lavora con noi</a></li></ul></nav><a href="../../contattaci.html" class="btn-cta">Contattaci &#8594;</a><button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button></div></header>
 <nav class="mobile-nav"><a href="../../index.html">Home</a><a href="../../chi-siamo.html">Chi Siamo</a><a href="../../servizi.html">Servizi</a><a href="../../ambiti.html">Ambiti</a><div class="mob-sub"><a href="../../siderurgico.html">Siderurgico</a><a href="../../energia-oil-gas.html">Energia / Oil Gas</a><a href="../../ambiente.html">Ambiente</a></div><a href="../../certificazioni.html">Certificazioni</a><a href="../../news.html">News</a><a href="../../lavora-con-noi.html">Lavora con noi</a><a href="../../contattaci.html" class="mob-cta">Contattaci &#8594;</a></nav>
-<section class="gallery-hero">
-  <div class="container">
-    <a href="../../siderurgico.html" class="back-btn">&#8592; Torna a Siderurgico</a>
-    <div class="gallery-company-header">
-      <img src="../../assets/images/2025__05__Logo_danieli.svg.png" alt="Danieli">
-      <div><h1>Danieli &amp; C.</h1><p>Settore: Siderurgico &middot; Montaggi meccanici e piping</p></div>
-    </div>
-  </div>
-</section>
-<section class="gallery-section"><div class="container">
-  <p class="gallery-count" id="photo-count"></p>
-  <div class="gallery-grid">
-    <div class="gallery-item"><img src="../../assets/images/2025__05__1564727653852-1.jpg" alt="Cantiere Danieli – laminazione" loading="lazy"></div>
-    <div class="gallery-item"><img src="../../assets/images/2025__05__1655490113461-1.jpg" alt="Cantiere Danieli – piping" loading="lazy"></div>
+
+<section class="gallery-hero"><div class="container">
+  <a href="../../siderurgico.html" class="back-btn">&#8592; Torna a Siderurgico</a>
+  <div class="gallery-company-header">
+    <img src="../../assets/images/2025__05__Logo_danieli.svg.png" alt="Danieli">
+    <div><h1>Danieli &amp; C.</h1><p>Settore: Siderurgico &middot; Montaggi meccanici e piping &middot; 2019–2023</p></div>
   </div>
 </div></section>
+
+<section class="gallery-section"><div class="container">
+  <p class="gallery-total-count" id="total-count"></p>
+
+  <div class="gallery-year-section">
+    <div class="gallery-year-header">
+      <span class="year-badge">2019</span>
+      <span class="year-location">Italia</span>
+      <span class="year-count"></span>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="../../assets/images/danieli/2019-italia/1591793003453.jpg" alt="Danieli 2019 Italia" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2019-italia/1591793003520.jpg" alt="Danieli 2019 Italia" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2019-italia/1591793004133.jpg" alt="Danieli 2019 Italia" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2019-italia/1591792999275.jpg" alt="Danieli 2019 Italia" loading="lazy"></div>
+    </div>
+  </div>
+
+  <div class="gallery-year-section">
+    <div class="gallery-year-header">
+      <span class="year-badge">2019</span>
+      <span class="year-location">Francia</span>
+      <span class="year-count"></span>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="../../assets/images/danieli/2019-francia/1581017900133.jpg" alt="Danieli 2019 Francia" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2019-francia/1581017897162.jpg" alt="Danieli 2019 Francia" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2019-francia/1581017905646.jpg" alt="Danieli 2019 Francia" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2019-francia/1581017902887.jpg" alt="Danieli 2019 Francia" loading="lazy"></div>
+    </div>
+  </div>
+
+  <div class="gallery-year-section">
+    <div class="gallery-year-header">
+      <span class="year-badge">2020</span>
+      <span class="year-location">Italia</span>
+      <span class="year-count"></span>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="../../assets/images/danieli/2020/1594014800323.jpg" alt="Danieli 2020" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2020/1594014800415.jpg" alt="Danieli 2020" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2020/1594014829245.jpg" alt="Danieli 2020" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2020/1594014770917.jpg" alt="Danieli 2020" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2020/1594014771915.jpg" alt="Danieli 2020" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2020/1594014771982.jpg" alt="Danieli 2020" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2020/1594014772864.jpg" alt="Danieli 2020" loading="lazy"></div>
+    </div>
+  </div>
+
+  <div class="gallery-year-section">
+    <div class="gallery-year-header">
+      <span class="year-badge">2021</span>
+      <span class="year-location">Portogallo</span>
+      <span class="year-count"></span>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="../../assets/images/danieli/2021/1612910629685.jpg" alt="Danieli 2021" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2021/1612910556327-1.jpg" alt="Danieli 2021" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2021/1612910609926-1.jpg" alt="Danieli 2021" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2021/1612910637267-1.jpg" alt="Danieli 2021" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2021/1612910629685-1.jpg" alt="Danieli 2021" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2021/1612910623627-1.jpg" alt="Danieli 2021" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2021/1617106945310-1.jpg" alt="Danieli 2021" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2021/1617106943924-1.jpg" alt="Danieli 2021" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2021/1617106942607.jpg" alt="Danieli 2021" loading="lazy"></div>
+    </div>
+  </div>
+
+  <div class="gallery-year-section">
+    <div class="gallery-year-header">
+      <span class="year-badge">2022</span>
+      <span class="year-location">Italia</span>
+      <span class="year-count"></span>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="../../assets/images/danieli/2022-italia/1675106663735.jpg" alt="Danieli 2022 Italia" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2022-italia/1675106663818.jpg" alt="Danieli 2022 Italia" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2022-italia/1675106663888.jpg" alt="Danieli 2022 Italia" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2022-italia/1675106664330.jpg" alt="Danieli 2022 Italia" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2022-italia/1675106664974.jpg" alt="Danieli 2022 Italia" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2022-italia/1675106665367.jpg" alt="Danieli 2022 Italia" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2022-italia/1675106665452.jpg" alt="Danieli 2022 Italia" loading="lazy"></div>
+    </div>
+  </div>
+
+  <div class="gallery-year-section">
+    <div class="gallery-year-header">
+      <span class="year-badge">2023</span>
+      <span class="year-location">Italia</span>
+      <span class="year-count"></span>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="../../assets/images/danieli/2023-italia/WhatsApp-Image-2023-08-07-at-09.04.59.jpeg" alt="Danieli 2023 Italia" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2023-italia/WhatsApp-Image-2023-08-07-at-09.04.59-2.jpeg" alt="Danieli 2023 Italia" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2023-italia/WhatsApp-Image-2023-08-07-at-09.04.59-1.jpeg" alt="Danieli 2023 Italia" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2023-italia/WhatsApp-Image-2023-08-07-at-09.04.56.jpeg" alt="Danieli 2023 Italia" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2023-italia/WhatsApp-Image-2023-08-07-at-09.04.56-1.jpeg" alt="Danieli 2023 Italia" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2023-italia/WhatsApp-Image-2023-08-07-at-09.04.55.jpeg" alt="Danieli 2023 Italia" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2023-italia/WhatsApp-Image-2023-08-07-at-09.04.55-1.jpeg" alt="Danieli 2023 Italia" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2023-italia/WhatsApp-Image-2023-08-07-at-09.04.54.jpeg" alt="Danieli 2023 Italia" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2023-italia/WhatsApp-Image-2023-08-07-at-09.04.48.jpeg" alt="Danieli 2023 Italia" loading="lazy"></div>
+    </div>
+  </div>
+
+  <div class="gallery-year-section">
+    <div class="gallery-year-header">
+      <span class="year-badge">2023</span>
+      <span class="year-location">Regno Unito</span>
+      <span class="year-count"></span>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="../../assets/images/danieli/2023-uk/1684953633462-1.jpg" alt="Danieli 2023 UK" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2023-uk/1684953619737.jpg" alt="Danieli 2023 UK" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2023-uk/1684953626396.jpg" alt="Danieli 2023 UK" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2023-uk/1684953627478.jpg" alt="Danieli 2023 UK" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2023-uk/1684953632204-1.jpg" alt="Danieli 2023 UK" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2023-uk/1684953632204.jpg" alt="Danieli 2023 UK" loading="lazy"></div>
+      <div class="gallery-item"><img src="../../assets/images/danieli/2023-uk/1684953618941.jpg" alt="Danieli 2023 UK" loading="lazy"></div>
+    </div>
+  </div>
+
+</div></section>
+
 <div id="lightbox"><div class="lb-img-wrap"><button id="lb-close" aria-label="Chiudi">&#10005;</button><button class="lb-nav" id="lb-prev" aria-label="Precedente">&#8249;</button><img id="lb-img" src="" alt=""><button class="lb-nav" id="lb-next" aria-label="Successiva">&#8250;</button></div><div id="lb-counter"></div></div>
+
 <footer class="site-footer"><div class="footer-grid"><div class="footer-brand"><img src="../../assets/images/2025__04__logo-1.jpg" alt="Energy Way"><p>Energy Way è un contractor industriale specializzato nell'offerta di soluzioni chiavi in mano per impianti industriali.</p><div class="footer-social"><a href="https://www.facebook.com/profile.php?id=100063471234071" aria-label="Facebook" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a><a href="https://www.linkedin.com/company/energy-way-srl/posts/?feedView=all" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i></a><a href="https://www.instagram.com/energy_way_s.r.l/" aria-label="Instagram" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a><a href="https://wa.me/393474131349" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a></div></div><div class="footer-col"><h4>Navigazione</h4><ul><li><a href="../../index.html">Home</a></li><li><a href="../../chi-siamo.html">Chi Siamo</a></li><li><a href="../../servizi.html">Servizi</a></li><li><a href="../../ambiti.html">Ambiti</a></li><li><a href="../../certificazioni.html">Certificazioni</a></li></ul></div><div class="footer-col"><h4>Settori</h4><ul><li><a href="../../siderurgico.html">Siderurgico</a></li><li><a href="../../energia-oil-gas.html">Energia / Oil Gas</a></li><li><a href="../../ambiente.html">Ambiente</a></li></ul></div><div class="footer-col"><h4>Contatti</h4><div class="f-contact"><span class="f-contact-icon">&#128205;</span><span>Via Giovanni Falcone 5, Gela (CL)</span></div><div class="f-contact"><span class="f-contact-icon">&#128222;</span><a href="tel:+390933196443">0933 1964431</a></div><div class="f-contact"><span class="f-contact-icon">&#9993;</span><a href="mailto:info@energy-way.it">info@energy-way.it</a></div></div></div><div class="footer-bottom"><span>&copy; 2014 &ndash; 2025 Energy Way S.r.l. &ndash; P.IVA 01930740855</span><span><a href="#">Privacy Policy</a> &middot; <a href="#">Cookie Policy</a></span></div></footer>
 <a href="https://wa.me/393474131349?text=Ciao%2C%20ho%20bisogno%20di%20informazioni%20sui%20vostri%20servizi" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
 <script src="../../js/main.js"></script>
-<script>(function(){const items=document.querySelectorAll('.gallery-item');const photos=Array.from(items).map(el=>({src:el.querySelector('img').src,alt:el.querySelector('img').alt}));document.getElementById('photo-count').textContent=photos.length+' foto di cantiere';let cur=0;const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lb-img'),lbC=document.getElementById('lb-counter');function show(i){cur=((i%photos.length)+photos.length)%photos.length;lbImg.src=photos[cur].src;lbImg.alt=photos[cur].alt;lbC.textContent=(cur+1)+' / '+photos.length;}function open(i){show(i);lb.classList.add('active');document.body.style.overflow='hidden';}function close(){lb.classList.remove('active');document.body.style.overflow='';}items.forEach((el,i)=>el.addEventListener('click',()=>open(i)));document.getElementById('lb-close').addEventListener('click',close);document.getElementById('lb-prev').addEventListener('click',()=>show(cur-1));document.getElementById('lb-next').addEventListener('click',()=>show(cur+1));lb.addEventListener('click',e=>{if(e.target===lb)close();});document.addEventListener('keydown',e=>{if(!lb.classList.contains('active'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1);});})();</script>
-</body>
-</html>
+<script>(function(){
+  const items=document.querySelectorAll('.gallery-item');
+  const photos=Array.from(items).map(el=>({src:el.querySelector('img').src,alt:el.querySelector('img').alt}));
+  document.getElementById('total-count').textContent=photos.length+' foto totali';
+  document.querySelectorAll('.gallery-year-section').forEach(sec=>{
+    const n=sec.querySelectorAll('.gallery-item').length;
+    sec.querySelector('.year-count').textContent=n+' foto';
+  });
+  let cur=0;
+  const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lb-img'),lbC=document.getElementById('lb-counter');
+  function show(i){cur=((i%photos.length)+photos.length)%photos.length;lbImg.src=photos[cur].src;lbImg.alt=photos[cur].alt;lbC.textContent=(cur+1)+' / '+photos.length;}
+  function open(i){show(i);lb.classList.add('active');document.body.style.overflow='hidden';}
+  function close(){lb.classList.remove('active');document.body.style.overflow='';}
+  items.forEach((el,i)=>el.addEventListener('click',()=>open(i)));
+  document.getElementById('lb-close').addEventListener('click',close);
+  document.getElementById('lb-prev').addEventListener('click',()=>show(cur-1));
+  document.getElementById('lb-next').addEventListener('click',()=>show(cur+1));
+  lb.addEventListener('click',e=>{if(e.target===lb)close();});
+  document.addEventListener('keydown',e=>{if(!lb.classList.contains('active'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1);});
+})();</script>
+</body></html>
