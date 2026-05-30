@@ -28,6 +28,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ---- Desktop dropdown: click-toggle + hover bridge ---- */
+  const ddItems = document.querySelectorAll('.nav-list > li.has-dropdown');
+  ddItems.forEach(li => {
+    const trigger = li.querySelector(':scope > a');
+
+    trigger.addEventListener('click', e => {
+      const isOpen = li.classList.contains('dd-open');
+      // close all others
+      ddItems.forEach(other => other.classList.remove('dd-open'));
+      if (isOpen) {
+        // second click → navigate normally
+      } else {
+        e.preventDefault();
+        li.classList.add('dd-open');
+      }
+    });
+
+    li.addEventListener('mouseleave', () => li.classList.remove('dd-open'));
+  });
+
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.has-dropdown')) {
+      ddItems.forEach(li => li.classList.remove('dd-open'));
+    }
+  });
+
   /* ---- Active nav link ---- */
   const page = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-list > li > a').forEach(link => {

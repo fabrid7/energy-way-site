@@ -1,12 +1,180 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Siderurgico – Energy Way</title>
-  <meta name="description" content="Energy Way nel settore siderurgico: montaggi meccanici e piping su impianti per la lavorazione dell'acciaio. Commesse con Danieli, Primetals, NLMK, LOI, Arvedi.">
+  <meta name="description" content="Energy Way nel settore siderurgico: montaggi meccanici e piping su impianti per la lavorazione dell'acciaio. Commesse con Danieli, Primetals, NLMK, LOI, Arvedi, Dillinger, Polytec, Tenova.">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    /* Siderurgico – company card isolati */
+    .commesse-isolated {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+    .commessa-card-full {
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 3px 24px rgba(0,0,0,.10);
+      border: 1px solid rgba(0,0,0,.06);
+      border-left: 5px solid var(--blue);
+      transition: box-shadow .3s, border-left-color .3s;
+    }
+    .commessa-card-full:hover {
+      box-shadow: 0 8px 40px rgba(0,0,0,.15);
+      border-left-color: var(--gold);
+    }
+    .commessa-card-full .commessa-head {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 20px 28px;
+      background: var(--gray);
+      border-bottom: 2px solid rgba(26,111,212,.10);
+    }
+    .commessa-card-full .commessa-head img {
+      height: 48px;
+      max-width: 140px;
+      object-fit: contain;
+      filter: none;
+    }
+    .commessa-card-full .commessa-head-info h3 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 3px;
+    }
+    .commessa-card-full .commessa-head-info span {
+      font-size: .78rem;
+      color: var(--blue);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .6px;
+    }
+    .commessa-card-full .commessa-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 0;
+    }
+    .commessa-card-full .commessa-text {
+      padding: 28px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-right: 1px solid rgba(0,0,0,.07);
+    }
+    .commessa-card-full .commessa-text p {
+      font-size: .9rem;
+      color: var(--mid);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .commessa-card-full .commessa-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+    .commessa-card-full .commessa-tag {
+      font-size: .7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      padding: 4px 11px;
+      border-radius: 20px;
+      background: rgba(26,111,212,.09);
+      color: var(--blue);
+    }
+    .commessa-card-full .commessa-photos-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px;
+    }
+    .commessa-card-full .commessa-photos-wrap img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: transform .4s;
+      display: block;
+    }
+    .commessa-card-full:hover .commessa-photos-wrap img {
+      transform: scale(1.03);
+    }
+    .company-no-logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 48px;
+      padding: 0 16px;
+      background: var(--dark);
+      color: var(--white);
+      font-size: .85rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      border-radius: 6px;
+      text-transform: uppercase;
+    }
+    @media(max-width: 860px) {
+      .commessa-card-full .commessa-layout {
+        grid-template-columns: 1fr;
+      }
+      .commessa-card-full .commessa-text {
+        border-right: none;
+        border-bottom: 1px solid rgba(0,0,0,.07);
+      }
+      .commessa-card-full .commessa-photos-wrap img {
+        height: 160px;
+      }
+    }
+    @media(max-width: 540px) {
+      .commessa-card-full .commessa-photos-wrap {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Ambiente banner */
+    .ambiente-banner {
+      position: relative;
+      height: 340px;
+      overflow: hidden;
+      margin-bottom: 0;
+    }
+    .ambiente-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .ambiente-banner-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(15,25,35,.6) 0%, rgba(15,25,35,.35) 60%, rgba(15,25,35,.7) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 0 24px;
+    }
+    .ambiente-banner-overlay h2 {
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 900;
+      margin-bottom: 10px;
+      text-shadow: 0 2px 12px rgba(0,0,0,.5);
+    }
+    .ambiente-banner-overlay p {
+      color: rgba(255,255,255,.85);
+      font-size: 1.05rem;
+      max-width: 640px;
+    }
+    @media(max-width: 600px) {
+      .ambiente-banner { height: 220px; }
+      .ambiente-banner-overlay h2 { font-size: 1.4rem; }
+    }
+  </style>
 </head>
 <body>
 
@@ -52,6 +220,7 @@
   <a href="contattaci.html" class="mob-cta">Contattaci &#8594;</a>
 </nav>
 
+<!-- HERO -->
 <section class="page-hero">
   <div class="hero-bg" style="background-image:url('assets/images/2025__05__1680972890267-1.jpg')"></div>
   <div class="hero-overlay"></div>
@@ -62,6 +231,7 @@
   </div>
 </section>
 
+<!-- INTRO -->
 <section class="section">
   <div class="container">
     <div class="sector-intro">
@@ -70,7 +240,7 @@
       <p>Energy Way è specializzata nella realizzazione di interventi complessi negli impianti siderurgici per la lavorazione e trasformazione dei metalli. Operiamo con squadre qualificate su linee di laminazione, forni industriali, impianti di colata continua e sistemi di movimentazione materiali, in Italia e all'estero.</p>
     </div>
     <div class="split" style="margin-bottom:64px">
-      <div class="split-img"><img src="assets/images/2025__05__1684953633462-1-1.jpg" alt="Impianto siderurgico" loading="lazy"></div>
+      <div class="split-img"><img src="assets/images/2025__05__1631300679869.jpg" alt="Impianto siderurgico" loading="lazy"></div>
       <div class="split-text">
         <h2>Competenze nel settore dell'acciaio</h2>
         <p>La nostra esperienza pluriennale nel settore siderurgico ci permette di gestire interventi di grande complessità tecnica, operando in ambienti ad alta temperatura con materiali speciali e sotto stretto controllo qualità.</p>
@@ -89,6 +259,16 @@
   </div>
 </section>
 
+<!-- AMBIENTE BANNER -->
+<div class="ambiente-banner">
+  <img src="assets/images/2025__05__1684953633462-1-1.jpg" alt="Ambiente siderurgico – impianto acciaio" loading="lazy">
+  <div class="ambiente-banner-overlay">
+    <h2>Nell'ambiente dell'acciaio</h2>
+    <p>Operiamo nei contesti più impegnativi dell'industria siderurgica, garantendo sicurezza, qualità e puntualità in ogni cantiere.</p>
+  </div>
+</div>
+
+<!-- HIGHLIGHT BAR -->
 <section class="highlight-bar">
   <div class="highlight-grid">
     <div class="highlight-item"><span class="hi-icon">&#9881;</span><div><h4>Montaggi Meccanici</h4><p>Installazione di macchinari e componenti su qualsiasi tipologia di impianto siderurgico.</p></div></div>
@@ -98,7 +278,7 @@
   </div>
 </section>
 
-<!-- COMMESSE -->
+<!-- COMMESSE – ogni azienda isolata -->
 <section class="section bg-gray">
   <div class="container">
     <div class="section-head">
@@ -106,102 +286,230 @@
       <h2>Commesse nel settore siderurgico</h2>
       <p>Le principali commesse realizzate per i leader mondiali del settore acciaio.</p>
     </div>
-    <div class="commesse-grid">
 
-      <div class="commessa-card">
+    <div class="commesse-isolated">
+
+      <!-- ═══════════════════════════════════════════
+           DANIELI
+      ═══════════════════════════════════════════ -->
+      <div class="commessa-card-full">
         <div class="commessa-head">
           <img src="assets/images/2025__05__Logo_danieli.svg.png" alt="Danieli">
-          <div class="commessa-head-info"><h3>Danieli &amp; C.</h3><span>Montaggi meccanici e piping</span></div>
+          <div class="commessa-head-info">
+            <h3>Danieli &amp; C.</h3>
+            <span>Montaggi meccanici e piping</span>
+          </div>
         </div>
-        <div class="commessa-photos cols-2">
-          <img src="assets/images/2025__05__1564727653852-1.jpg" alt="Cantiere Danieli" loading="lazy">
-          <img src="assets/images/2025__05__1655490113461-1.jpg" alt="Montaggio Danieli" loading="lazy">
-        </div>
-        <div class="commessa-body">
-          <p>Montaggi meccanici e installazione piping su linee di laminazione e impianti di processo per conto di Danieli, leader mondiale nella produzione di impianti siderurgici.</p>
-          <div class="commessa-tags"><span class="commessa-tag">Laminazione</span><span class="commessa-tag">Piping</span><span class="commessa-tag">Montaggi meccanici</span></div>
+        <div class="commessa-layout">
+          <div class="commessa-text">
+            <p>Montaggi meccanici e installazione piping su linee di laminazione e impianti di processo per conto di Danieli, leader mondiale nella produzione di impianti siderurgici.</p>
+            <div class="commessa-tags">
+              <span class="commessa-tag">Laminazione</span>
+              <span class="commessa-tag">Piping</span>
+              <span class="commessa-tag">Montaggi meccanici</span>
+            </div>
+          </div>
+          <div class="commessa-photos-wrap">
+            <img src="assets/images/2025__05__1564727653852-1.jpg" alt="Cantiere Danieli" loading="lazy">
+            <img src="assets/images/2025__05__1655490113461-1.jpg" alt="Montaggio Danieli" loading="lazy">
+          </div>
         </div>
       </div>
 
-      <div class="commessa-card">
+      <!-- ═══════════════════════════════════════════
+           PRIMETALS TECHNOLOGIES
+      ═══════════════════════════════════════════ -->
+      <div class="commessa-card-full">
         <div class="commessa-head">
           <img src="assets/images/2025__05__Primetals_Technologies.png" alt="Primetals Technologies">
-          <div class="commessa-head-info"><h3>Primetals Technologies</h3><span>Impianti di processo siderurgico</span></div>
+          <div class="commessa-head-info">
+            <h3>Primetals Technologies</h3>
+            <span>Impianti di processo siderurgico</span>
+          </div>
         </div>
-        <div class="commessa-photos cols-2">
-          <img src="assets/images/2025__05__1666174794660-1-1.jpg" alt="Cantiere Primetals" loading="lazy">
-          <img src="assets/images/2025__05__1680972890267-1.jpg" alt="Impianto Primetals" loading="lazy">
-        </div>
-        <div class="commessa-body">
-          <p>Costruzioni e montaggi meccanici su impianti siderurgici complessi per Primetals Technologies, joint venture tra Mitsubishi Heavy Industries e Partners.</p>
-          <div class="commessa-tags"><span class="commessa-tag">Colata continua</span><span class="commessa-tag">Strutture metalliche</span><span class="commessa-tag">Carpenteria pesante</span></div>
+        <div class="commessa-layout">
+          <div class="commessa-text">
+            <p>Costruzioni e montaggi meccanici su impianti siderurgici complessi per Primetals Technologies, joint venture tra Mitsubishi Heavy Industries e Partners.</p>
+            <div class="commessa-tags">
+              <span class="commessa-tag">Colata continua</span>
+              <span class="commessa-tag">Strutture metalliche</span>
+              <span class="commessa-tag">Carpenteria pesante</span>
+            </div>
+          </div>
+          <div class="commessa-photos-wrap">
+            <img src="assets/images/2025__05__1666174794660-1-1.jpg" alt="Cantiere Primetals" loading="lazy">
+            <img src="assets/images/2025__05__1681552581212.jpg" alt="Impianto Primetals" loading="lazy">
+          </div>
         </div>
       </div>
 
-      <div class="commessa-card">
+      <!-- ═══════════════════════════════════════════
+           LOI THERMOPROCESS
+      ═══════════════════════════════════════════ -->
+      <div class="commessa-card-full">
         <div class="commessa-head">
           <img src="assets/images/2025__05__LOI_thermoprocess.png" alt="LOI Thermoprocess">
-          <div class="commessa-head-info"><h3>LOI Thermoprocess</h3><span>Forni industriali e trattamenti termici</span></div>
+          <div class="commessa-head-info">
+            <h3>LOI Thermoprocess</h3>
+            <span>Forni industriali e trattamenti termici</span>
+          </div>
         </div>
-        <div class="commessa-photos cols-2">
-          <img src="assets/images/2025__05__ChatGPT-Image-13-mag-2025-15_31_54.png" alt="Forno LOI" loading="lazy">
-          <img src="assets/images/2025__05__ChatGPT-Image-13-mag-2025-15_35_22.png" alt="Installazione LOI" loading="lazy">
-        </div>
-        <div class="commessa-body">
-          <p>Installazione e montaggio di forni industriali per trattamenti termici su nastri e coils d'acciaio. LOI Thermoprocess è leader europeo nella produzione di forni per l'industria siderurgica.</p>
-          <div class="commessa-tags"><span class="commessa-tag">Forni industriali</span><span class="commessa-tag">Trattamenti termici</span><span class="commessa-tag">Alta temperatura</span></div>
+        <div class="commessa-layout">
+          <div class="commessa-text">
+            <p>Installazione e montaggio di forni industriali per trattamenti termici su nastri e coils d'acciaio. LOI Thermoprocess è leader europeo nella produzione di forni per l'industria siderurgica.</p>
+            <div class="commessa-tags">
+              <span class="commessa-tag">Forni industriali</span>
+              <span class="commessa-tag">Trattamenti termici</span>
+              <span class="commessa-tag">Alta temperatura</span>
+            </div>
+          </div>
+          <div class="commessa-photos-wrap">
+            <img src="assets/images/2025__05__ChatGPT-Image-13-mag-2025-15_31_54.png" alt="Forno LOI" loading="lazy">
+            <img src="assets/images/2025__05__ChatGPT-Image-13-mag-2025-15_35_22.png" alt="Installazione LOI" loading="lazy">
+          </div>
         </div>
       </div>
 
-      <div class="commessa-card">
+      <!-- ═══════════════════════════════════════════
+           NLMK GROUP
+      ═══════════════════════════════════════════ -->
+      <div class="commessa-card-full">
         <div class="commessa-head">
-          <img src="assets/images/elementor__thumbs__NLMK_Logo.svg-r5gjkdtphwqxtgp0sx4jn0b0makjult5a75znhrt24.png" alt="NLMK">
-          <div class="commessa-head-info"><h3>NLMK Group</h3><span>Manutenzione e montaggi – Belgio</span></div>
+          <img src="assets/images/2025__05__NLMK_Logo.svg.png" alt="NLMK">
+          <div class="commessa-head-info">
+            <h3>NLMK Group</h3>
+            <span>Manutenzione e montaggi – Belgio</span>
+          </div>
         </div>
-        <div class="commessa-photos cols-2">
-          <img src="assets/images/2025__05__32a42b88-dd35-44a7-995c-4d1be433d7c3.jpg" alt="Cantiere NLMK" loading="lazy">
-          <img src="assets/images/2025__05__bg-belgio-1.jpg" alt="Cantiere Belgio" loading="lazy">
-        </div>
-        <div class="commessa-body">
-          <p>Interventi di manutenzione e montaggio presso gli stabilimenti NLMK in Belgio. NLMK è uno dei principali produttori mondiali di acciaio piatto con impianti in tutta Europa.</p>
-          <div class="commessa-tags"><span class="commessa-tag">Internazionale</span><span class="commessa-tag">Manutenzione</span><span class="commessa-tag">Belgio</span></div>
+        <div class="commessa-layout">
+          <div class="commessa-text">
+            <p>Interventi di manutenzione e montaggio presso gli stabilimenti NLMK in Belgio. NLMK è uno dei principali produttori mondiali di acciaio piatto con impianti in tutta Europa.</p>
+            <div class="commessa-tags">
+              <span class="commessa-tag">Internazionale</span>
+              <span class="commessa-tag">Manutenzione</span>
+              <span class="commessa-tag">Belgio</span>
+            </div>
+          </div>
+          <div class="commessa-photos-wrap">
+            <img src="assets/images/2025__05__32a42b88-dd35-44a7-995c-4d1be433d7c3.jpg" alt="Cantiere NLMK" loading="lazy">
+            <img src="assets/images/2025__05__bg-belgio-1.jpg" alt="Stabilimento NLMK Belgio" loading="lazy">
+          </div>
         </div>
       </div>
 
-      <div class="commessa-card">
+      <!-- ═══════════════════════════════════════════
+           ARVEDI GROUP
+      ═══════════════════════════════════════════ -->
+      <div class="commessa-card-full">
         <div class="commessa-head">
-          <img src="assets/images/elementor__thumbs__Arvedi_Unternehmen_logo.svg-r5giyzzusqoyb49nfau5kdn59azepoourb12gy9i3s.png" alt="Arvedi">
-          <div class="commessa-head-info"><h3>Arvedi Group</h3><span>Carpenteria e strutture metalliche</span></div>
+          <img src="assets/images/2025__05__Arvedi_Unternehmen_logo.svg.png" alt="Arvedi">
+          <div class="commessa-head-info">
+            <h3>Arvedi Group</h3>
+            <span>Carpenteria e strutture metalliche</span>
+          </div>
         </div>
-        <div class="commessa-photos cols-2">
-          <img src="assets/images/2025__05__ChatGPT-Image-13-mag-2025-15_42_19.png" alt="Cantiere Arvedi" loading="lazy">
-          <img src="assets/images/2025__05__1684953633462-1-1.jpg" alt="Strutture Arvedi" loading="lazy">
-        </div>
-        <div class="commessa-body">
-          <p>Realizzazione di carpenterie metalliche e strutture di supporto per impianti siderurgici del Gruppo Arvedi, uno dei principali produttori europei di acciaio laminato.</p>
-          <div class="commessa-tags"><span class="commessa-tag">Carpenteria pesante</span><span class="commessa-tag">Strutture di supporto</span><span class="commessa-tag">Acciaio laminato</span></div>
+        <div class="commessa-layout">
+          <div class="commessa-text">
+            <p>Realizzazione di carpenterie metalliche e strutture di supporto per impianti siderurgici del Gruppo Arvedi, uno dei principali produttori europei di acciaio laminato.</p>
+            <div class="commessa-tags">
+              <span class="commessa-tag">Carpenteria pesante</span>
+              <span class="commessa-tag">Strutture di supporto</span>
+              <span class="commessa-tag">Acciaio laminato</span>
+            </div>
+          </div>
+          <div class="commessa-photos-wrap">
+            <img src="assets/images/2025__05__ChatGPT-Image-13-mag-2025-15_42_19.png" alt="Cantiere Arvedi" loading="lazy">
+            <img src="assets/images/2025__05__1620500542198.jpg" alt="Strutture Arvedi" loading="lazy">
+          </div>
         </div>
       </div>
 
-      <div class="commessa-card">
+      <!-- ═══════════════════════════════════════════
+           DILLINGER FRANCE
+      ═══════════════════════════════════════════ -->
+      <div class="commessa-card-full">
         <div class="commessa-head">
-          <img src="assets/images/2025__05__DILLINGER_France_logo_officiel.jpg" alt="Dillinger">
-          <div class="commessa-head-info"><h3>Dillinger France</h3><span>Montaggi impianto laminazione</span></div>
+          <img src="assets/images/2025__05__DILLINGER_France_logo_officiel.jpg" alt="Dillinger France">
+          <div class="commessa-head-info">
+            <h3>Dillinger France</h3>
+            <span>Montaggi impianto laminazione</span>
+          </div>
         </div>
-        <div class="commessa-photos cols-2">
-          <img src="assets/images/2025__05__1655490113461-1.jpg" alt="Cantiere Dillinger" loading="lazy">
-          <img src="assets/images/2025__05__1666174794660-1-1.jpg" alt="Laminazione Dillinger" loading="lazy">
-        </div>
-        <div class="commessa-body">
-          <p>Montaggi meccanici su impianto di laminazione a caldo per Dillinger France, produttore europeo di riferimento per lamiere spesse di alta qualità destinate a settori critici.</p>
-          <div class="commessa-tags"><span class="commessa-tag">Laminazione a caldo</span><span class="commessa-tag">Francia</span><span class="commessa-tag">Lamiere spesse</span></div>
+        <div class="commessa-layout">
+          <div class="commessa-text">
+            <p>Montaggi meccanici su impianto di laminazione a caldo per Dillinger France, produttore europeo di riferimento per lamiere spesse di alta qualità destinate a settori critici.</p>
+            <div class="commessa-tags">
+              <span class="commessa-tag">Laminazione a caldo</span>
+              <span class="commessa-tag">Francia</span>
+              <span class="commessa-tag">Lamiere spesse</span>
+            </div>
+          </div>
+          <div class="commessa-photos-wrap">
+            <img src="assets/images/2025__05__1607467961799-1.jpg" alt="Cantiere Dillinger" loading="lazy">
+            <img src="assets/images/2025__05__1632555661987.jpg" alt="Laminazione Dillinger" loading="lazy">
+          </div>
         </div>
       </div>
 
-    </div>
+      <!-- ═══════════════════════════════════════════
+           POLYTEC BM GROUP
+      ═══════════════════════════════════════════ -->
+      <div class="commessa-card-full">
+        <div class="commessa-head">
+          <img src="assets/images/2025__05__Polytec_BM_Group_Logo.png" alt="Polytec BM Group">
+          <div class="commessa-head-info">
+            <h3>Polytec BM Group</h3>
+            <span>Isolamento termico e acustico industriale</span>
+          </div>
+        </div>
+        <div class="commessa-layout">
+          <div class="commessa-text">
+            <p>Forniture e montaggi di sistemi di isolamento termico e acustico per impianti siderurgici e forni industriali in collaborazione con Polytec BM Group, leader europeo nel settore.</p>
+            <div class="commessa-tags">
+              <span class="commessa-tag">Isolamento termico</span>
+              <span class="commessa-tag">Forni industriali</span>
+              <span class="commessa-tag">Alta temperatura</span>
+            </div>
+          </div>
+          <div class="commessa-photos-wrap">
+            <img src="assets/images/2025__05__1596030215453-1.jpg" alt="Cantiere Polytec" loading="lazy">
+            <img src="assets/images/2025__05__1631303580818.jpg" alt="Installazione Polytec" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════════
+           TENOVA
+      ═══════════════════════════════════════════ -->
+      <div class="commessa-card-full">
+        <div class="commessa-head">
+          <div class="company-no-logo">TENOVA</div>
+          <div class="commessa-head-info">
+            <h3>Tenova</h3>
+            <span>Tecnologie avanzate per la metallurgia</span>
+          </div>
+        </div>
+        <div class="commessa-layout">
+          <div class="commessa-text">
+            <p>Montaggi meccanici e piping su impianti avanzati per la metallurgia e la trasformazione dei metalli per conto di Tenova, fornitore globale di tecnologie innovative per l'industria siderurgica.</p>
+            <div class="commessa-tags">
+              <span class="commessa-tag">Metallurgia</span>
+              <span class="commessa-tag">Impianti avanzati</span>
+              <span class="commessa-tag">Piping</span>
+            </div>
+          </div>
+          <div class="commessa-photos-wrap">
+            <img src="assets/images/2025__05__1631328748645.jpg" alt="Cantiere Tenova" loading="lazy">
+            <img src="assets/images/2025__05__WhatsApp-Image-2025-05-09-at-16.13.21.jpeg" alt="Impianto Tenova" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.commesse-isolated -->
   </div>
 </section>
 
+<!-- CTA -->
 <section class="section-sm">
   <div class="container" style="text-align:center">
     <h2 style="font-size:1.8rem;font-weight:800;color:var(--dark);margin-bottom:12px">Hai un progetto nel settore siderurgico?</h2>
@@ -251,4 +559,3 @@
 <script src="js/main.js"></script>
 </body>
 </html>
-

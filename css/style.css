@@ -81,6 +81,13 @@ button{cursor:pointer;font-family:inherit}
 .nav-list>li.has-dropdown>a::after{content:' ▾';font-size:.65rem;opacity:.7}
 
 /* Dropdown */
+.nav-list>li.has-dropdown{position:relative}
+/* Transparent bridge: fills the 10px gap between nav item and dropdown
+   so the :hover chain is never broken when the mouse crosses the gap */
+.nav-list>li.has-dropdown::before{
+  content:'';position:absolute;top:100%;left:0;
+  width:100%;height:10px;z-index:199
+}
 .dropdown{
   position:absolute;top:calc(100% + 6px);left:0;min-width:200px;
   background:var(--white);border-radius:10px;
@@ -88,7 +95,8 @@ button{cursor:pointer;font-family:inherit}
   opacity:0;pointer-events:none;transform:translateY(-8px);
   transition:opacity .2s,transform .2s;z-index:200;overflow:hidden;
 }
-.nav-list>li.has-dropdown:hover .dropdown{
+.nav-list>li.has-dropdown:hover .dropdown,
+.nav-list>li.has-dropdown.dd-open .dropdown{
   opacity:1;pointer-events:auto;transform:translateY(0)
 }
 .dropdown a{
